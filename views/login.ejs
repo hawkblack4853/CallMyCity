@@ -1,12 +1,60 @@
-<h1>
-	LOGIN
-</h1>
-<form action="/login" method = "POST">
-	<input type="text" placeholder = "username" name = 	"username">
-	<input type="password" placeholder = "password" name="password">
-	<button>
+<!-- <h1> -->
+	<!-- LOGIN -->
+<!-- </h1> -->
+<!-- <form action="/login" method = "POST"> -->
+	<!-- <input type="text" placeholder = "username" name = 	"username">
+	<input type="password" placeholder = "password" name="password"> -->
+	<!-- <button>
 		submit
-	</button>
-</form>
+	</button> -->
+<!-- </form> -->
 
-<a href="/register">don't have an account? create NOW!</a>
+<!-- <a href="/register">don't have an account? create NOW!</a> -->
+
+
+<%- include("partials/header_provider") %>	
+	<div class="container">
+        <div class="myCard">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="myLeftCtn"> 
+                        <form action="/login" method = "POST" class="myForm text-center">
+                            <header>Login Kariye.</header>
+                            <div class="form-group">
+                                <i class="fas fa-user"></i>
+                                <input class="myInput" type="text" placeholder = "username" name = 	"username">
+                            </div>
+
+                            <div class="form-group">
+                                <i class="fas fa-envelope"></i>
+                                <input class="myInput" type="password" placeholder = "password" name="password">
+                            </div>       
+                            <label>
+                            <input type="submit" class="butt" value="Login">
+							<div class="invalid-feedback">ABBE NIKAL.. YE LEARNING WEBSITE NAHI HAI</div>
+                            </label>
+                        </form>
+						<div style="padding-top: 30px; padding-left: 10px;">
+							<a href="/register" style="padding-top: 70px; color: black; font-family: sans-serif;">Don't have an account? create NOW!</a>
+						</div>
+                    </div>
+                </div> 
+                <div class="col-md-6">
+                    <div class="myRightCtn">
+                            <div class="box"><header>Wohoo Welcome Again!</header>
+                            
+                            <!-- <p>we WILL HAPPY TO SERVE YOU</p> -->
+                                <input type="button" class="butt_out" value="Learn More"/>
+                            </div>
+                                
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+      
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</form>
