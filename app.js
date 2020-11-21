@@ -2,10 +2,28 @@ var express       = require("express");
 var app           = express();
 var bodyParser    = require("body-parser");
 var mongoose      = require("mongoose");
+var passport      = require("passport");
+// var multer      = require("multer");
+var LocalStrategy = require("passport-local");
+var User          = require("./models/user");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine" , "ejs");
+
+//multer- image upload
+
+// var storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, 'uploads/')
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now())
+//   }
+// })
+ 
+// var upload = multer({ storage: storage }).single('file');
+ 
 
 //schema 
 var providerSchema = new mongoose.Schema({
@@ -13,7 +31,8 @@ var providerSchema = new mongoose.Schema({
 	city: String,
 	age : Number,
 	work: String,
-	contact: Number
+	contact: Number,
+	// image: String,
 });
 
 var Provider = mongoose.model("Provider", providerSchema);
@@ -44,12 +63,29 @@ var customer = [
 	]
 
 
+//Passport configuration (authentication
+app.use(require("express-session")({
+	secret: "Hey! from pv!",
+	resave: false,
+	saveUninitialized: false
+}));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
+
 //===================================
 //   ROUTES      
-//===================================
+//==================================
+
 
 app.get("/", function(req, res){
-	res.render("landing.ejs");
+	res.render("landing");
 })
 
 app.get("/customer", function(req, res){
@@ -62,9 +98,6 @@ app.get("/customer", function(req, res){
 	})
 })
 
-app.get("/provider", function(req, res){
-	res.render("provider");
-})
 
 app.post("/customer", function(req, res){
 	var name = req.body.name;
@@ -83,8 +116,54 @@ app.post("/customer", function(req, res){
 			res.redirect("/customer");		
 		}
 	})
-	
 })
+
+
+app.get("/provider", isLoggedIn , function(req, res){
+	res.render("provider");
+})
+
+///authntication routes
+app.get("/register", function(req,res){
+	res.render("register");
+})
+
+app.post("/register", function(req, res){
+	var newUser  = new User({username: req.body.username});
+	User.register(newUser, req.body.password, function(err, User){
+		if(err){
+			console.log(err);
+		} 
+		passport.authenticate("local")(req, res, function(){
+			res.redirect("/provider");
+		});
+		
+	})
+})
+
+//login
+app.get("/login", function(req, res){
+	res.render("login");
+})
+app.post("/login", passport.authenticate("local",
+	{
+		successRedirect: "/provider",
+		failureRedirect: "/login"
+	}), function(req,res){
+});
+//logout
+app.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/customer");
+})
+
+//logic
+function isLoggedIn(req, res, next){
+	if(req.isAuthenticated()){
+		return next();
+	}
+	res.redirect("/login");
+}
 
 
 //server call=======================================
