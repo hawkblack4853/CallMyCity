@@ -1,6 +1,13 @@
 <%- include("partials/header_coustmer.ejs") %>
 
+<form action="customerByKeyword" method="get">
+	<input type="text" name="locPar">
+	<input type="text" name="workPar">
+	<button class="butt_out" type="submit">submit</button>
+</form>
+
 <div class="row"> 
+
 <% customer.forEach(function(customer){ %>   
 <div class="col-md-3 col-sm-6 profile ">
 		<div class="wrapper">

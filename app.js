@@ -7,6 +7,8 @@ var passport      = require("passport");
 var LocalStrategy = require("passport-local");
 var User          = require("./models/user");
 
+// var mongoURI = "mongodb+srv://mrhashcoder:mansi8101@node.zafk9.mongodb.net/hackathon?retryWrites=true&w=majority"
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine" , "ejs");
@@ -54,7 +56,11 @@ var Provider = mongoose.model("Provider", providerSchema);
 
 //db
 
-mongoose.connect("mongodb://localhost/call_my_city");
+mongoose.connect("mongodb://localhost/call_my_city" , {
+	useCreateIndex : true,
+	useNewUrlParser:true,
+	useUnifiedTopology:true,
+});
 var customer = [
 		{name: "abhinav", city: "rishikesh", age: "19", work: "electrician"},
 		{name: "pushkar", city: "pratapgarh", age: "19", work: "car mechanic"},
@@ -88,7 +94,7 @@ app.get("/", function(req, res){
 	res.render("landing");
 })
 
-app.get("/customer", function(req, res){
+app.get("/customer", async function(req, res){
 	Provider.find({}, function(err, allProvider){
 		if(err){
 			console.log(err);
@@ -98,12 +104,31 @@ app.get("/customer", function(req, res){
 	})
 })
 
+app.get("/customerByKeyword" , (req , res) => {
+	try{
+		var workPar = req.query.workPar.toUpperCase();
+		// console.log(workPar)
+		var locPar = req.query.locPar.toUpperCase();
+		// console.log("yea");
+		Provider.find({$or : [{city : locPar} , {work : workPar}]}, function(err, allProvider){
+			if(err){
+				console.log(err);
+			} else{
+				res.render("customer",{customer: allProvider});		
+			}
+		})
+	}catch(err){
+		console.log("error aa gya");
+		res.render("error.ejs");
+	}
+})
+
 
 app.post("/customer", function(req, res){
-	var name = req.body.name;
-	var city = req.body.city;
+	var name = req.body.name.toUpperCase();
+	var city = req.body.city.toUpperCase();
 	var age = req.body.age;
-	var work = req.body.work;
+	var work = req.body.work.toUpperCase();
 	var contact = req.body.contact;
 	
 	var newProvider = {name: name, city: city, age: age, work: work, contact: contact}
@@ -171,3 +196,6 @@ function isLoggedIn(req, res, next){
 app.listen(process.env.PORT || 3000, function(){
      console.log("congo Server has started!!");
 });
+
+
+// http://localhost:3000/customerByKeyword?locPar=sikar&workPar=sex
