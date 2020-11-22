@@ -1,8 +1,5 @@
 <%- include("partials/header_coustmer.ejs") %>
 <form action="customerByKeyword" class="filter"method="get">
-	<h2 id="serch-text" >
-	Search By-
-</h2>
 	<input id="filter" type="text" name="locPar" placeholder="city">
 	<input id="filter"  type="text" name="workPar" placeholder="category">
 	<button id="search"  type="submit">submit</button>
@@ -30,7 +27,7 @@
 		
 		<p class="title"><%= customer.work %></p>
 		<p class="description">He lives in <%= customer.city %>,  and charge <%= customer.age %> per hour.</p>
-		<button type="button" class="btn"><%= customer.contact %></button>
+		<a href="sms:<%= customer.contact %>?&body=hey!%27are%20you%20free%20for%20doing%20<%= customer.work %>%20Work.Please%20contact%20me."><button                     type="button" class="btn"><%= customer.contact %></button></a>
 	</div>
 	<div class="social-icons">
 		<div class="icon">
