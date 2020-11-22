@@ -1,12 +1,16 @@
 <%- include("partials/header_coustmer.ejs") %>
-
-<form action="customerByKeyword" method="get">
-	<input type="text" name="locPar">
-	<input type="text" name="workPar">
-	<button class="butt_out" type="submit">submit</button>
+<form action="customerByKeyword" class="filter"method="get">
+	<h2 id="serch-text" >
+	Search By-
+</h2>
+	<input id="filter" type="text" name="locPar" placeholder="city">
+	<input id="filter"  type="text" name="workPar" placeholder="category">
+	<button id="search"  type="submit">submit</button>
 </form>
 
 <div class="row"> 
+	
+
 
 <% customer.forEach(function(customer){ %>   
 <div class="col-md-3 col-sm-6 profile ">
@@ -18,11 +22,14 @@
 	</div>
 	<!--width: 100%;height: 100vh;display: -webkit-box;display: flex;position: relative;background: #eeeeec;-webkit-box-align: center;align-items: center;-webkit-box-orient: vertical;-webkit-box-direction: normal;flex-direction: column;-webkit-box-pack: center;justify-content: center;font-family: 'Open Sans', sans-serif;font-size: 100%;-->
 	<div class="profile">
-		<img src="https://images.unsplash.com/photo-1484186139897-d5fc6b908812?ixlib=rb-0.3.5&s=9358d797b2e1370884aa51b0ab94f706&auto=format&fit=crop&w=200&q=80%20500w" class="thumbnail">
+		<!-- ============================================================================================== -->
+		<img src="https://www.computerhope.com/jargon/g/guest-user.jpg" class="thumbnail">
+		<!-- ============================================================================================== -->
 		<div class="check"><i class="fas fa-check"></i></div>
 		<h3 class="name"><%= customer.name %></h3>
+		
 		<p class="title"><%= customer.work %></p>
-		<p class="description">He is <%= customer.age %> years old and lives in <%= customer.city %></p>
+		<p class="description">He lives in <%= customer.city %>,  and charge <%= customer.age %> per hour.</p>
 		<button type="button" class="btn"><%= customer.contact %></button>
 	</div>
 	<div class="social-icons">

@@ -30,10 +30,12 @@ app.set("view engine" , "ejs");
 //schema 
 var providerSchema = new mongoose.Schema({
 	name: String,
+	gender: String,
 	city: String,
 	age : Number,
 	work: String,
 	contact: Number,
+	// salary: Number,
 	// image: String,
 });
 
@@ -94,21 +96,35 @@ app.get("/", function(req, res){
 	res.render("landing");
 })
 
+function shuffle(arra1) {
+    let ctr = arra1.length;
+    let temp;
+    let index;
+    while (ctr > 0) {
+        index = Math.floor(Math.random() * ctr);
+        ctr--;
+        temp = arra1[ctr];
+        arra1[ctr] = arra1[index];
+        arra1[index] = temp;
+    }
+    return arra1;
+}
+
 app.get("/customer", async function(req, res){
 	Provider.find({}, function(err, allProvider){
 		if(err){
 			console.log(err);
 		} else{
-			res.render("customer",{customer: allProvider});		
+			res.render("customer",{customer: shuffle(allProvider)});		
 		}
 	})
 })
 
 app.get("/customerByKeyword" , (req , res) => {
 	try{
-		var workPar = req.query.workPar.toUpperCase();
+		var workPar = req.query.workPar;
 		// console.log(workPar)
-		var locPar = req.query.locPar.toUpperCase();
+		var locPar = req.query.locPar;
 		// console.log("yea");
 		Provider.find({$or : [{city : locPar} , {work : workPar}]}, function(err, allProvider){
 			if(err){
@@ -125,11 +141,13 @@ app.get("/customerByKeyword" , (req , res) => {
 
 
 app.post("/customer", function(req, res){
-	var name = req.body.name.toUpperCase();
-	var city = req.body.city.toUpperCase();
+	var name = req.body.name;
+	var city = req.body.city;
 	var age = req.body.age;
-	var work = req.body.work.toUpperCase();
+	var work = req.body.work;
 	var contact = req.body.contact;
+	// var gender = req.body.gender;
+	// var salary = req.body.salary;
 	
 	var newProvider = {name: name, city: city, age: age, work: work, contact: contact}
 	//create and save to the database
@@ -193,7 +211,7 @@ function isLoggedIn(req, res, next){
 
 //server call=======================================
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 5000, function(){
      console.log("congo Server has started!!");
 });
 
