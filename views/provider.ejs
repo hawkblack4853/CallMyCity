@@ -12,72 +12,27 @@
 	
 </form>
  -->
+
 <div class="container">
-        <div class="myCard">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="myLeftCtn"> 
-                        <form action = "/customer" method = "POST" class="myForm text-center">
-                            <header>Create new account</header>
-                            <div class="form-group">
-                                <i class="fas fa-user"></i>
-                                <input class="myInput" type ="text" name = "name" placeholder="enter your name!">
-                            </div>
+		<form class="login-form" action="/customer" method="POST">
+				<h1 id="login">
+					Create a New Proile!
+				</h1>
+			  	<input type="text" class="login-username" name="name"  required="true" placeholder="Your good name?" />
+				<input type="text" class="login-password" name="city" required="true" placeholder="city?" />
+				<input type="number" class="login-password" name="age" required="true" placeholder="age" />
+			 	<input type="text" class="login-password" name="work" required="true" placeholder="what do you do?" />
+			  	<input type="text" class="login-password" name="contact" required="true" placeholder="contact number!" />
 
-                            <div class="form-group">
-                                <i class="fas fa-envelope"></i>
-                                <input class="myInput" type ="text" name = "city" placeholder="enter your city">
-                            </div>
-							
-							 <!-- <div class="form-group">
-                                <i class="fas fa-lock"></i>
-                                <input class="myInput" type ="text" name = "gender" placeholder="gender">
-                            </div>
- -->
-                            <div class="form-group">
-                                <i class="fas fa-lock"></i>
-                                <input class="myInput" type ="text" name = "age" placeholder="charge per hour">
-                            </div>
-							
-							 <div class="form-group">
-                                <i class="fas fa-lock"></i>
-                                <input class="myInput" type ="text" name = "work" placeholder=" what you do?">
-                            </div>
-							
-							 <div class="form-group">
-                                <i class="fas fa-lock"></i>
-                                <input class="myInput" type ="text" name = "contact" placeholder=" your contact no.">
-                            </div>
-	
-						
-							
-						
-						
-                        <div class="form-group">
-                                <label>
-                                    <input id="check_1" name="check_1"  type="checkbox" required><small> I read and agree to Terms & Conditions</small></input> 
-                                    <div class="invalid-feedback">You must check the box.</div>
-                                </label>
-                            </div>
-
-                            <input type="submit" class="butt" value="CREATE ACCOUNT">
-                            
-                        </form>
-                    </div>
-                </div> 
-                <div class="col-md-6">
-                    <div class="myRightCtn">
-                            <div class="box"><header>Hey Provider</header>
-                            
-                            <p>Shivansh or abhinav yaha ke lie content socho</p>
-                                <input type="button" class="butt_out" value="Learn More"/>
-                            </div>
-                                
-                    </div>
-                </div>
-            </div>
-        </div>
+			  <input type="submit" name="Login" value="Signup" class="login-submit" />	
+			</form>
+			<a href="/logout"> <input type="submit" value="Logout" class="login-submit" /></a>
+			<div class="underlay-photo"></div>
+	<div class="underlay-black"></div> 
 </div>
+
+
+
       
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -7,15 +7,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
     </head>
     <body>
-		<div id="box">
- 			 <p id="flashlight">
-    			<span id="flash">HEY! there,</span>
-   				 <span id="light">We call the city for U!</span>
-  			</p>
+		<div class="wrapper">
+		  <div class="nav">
+		     <div class="logo">
+		      	 Call My City
+	    	 </div>
+			 <div class="menu">
+			   <ul>
+                <li><a href="#">Home</a></li>
+				<li><a href="#">Listings</a></li> 
+				<li><a href="#">Locations</a></li> 
+				<li><a href="#">Contacts</a></li>	
+				<li><a href="#">Regsiter</a></li>
+			    </ul>
+		     </div>
+		  </div>
+			<div class="header">
+				<h1>Hi there!,</h1>
+				<p>
+				We call the city for you!
+				</p>
+				<div>
+					<a href="/customer"><button type="button">Get a Service!</button></a>
+					<a href="/provider"><button type="button">Provide a Service</button></a>
+				</div>
+				
+			 </div>
+		</div>
+		
 			
-			<div class = "buttons">
-				<a href="/customer"> <button class="btn btn-one" >Get a service!</button></a>
-				<a href="/provider"><button class="btn btn-one"> Provide a service!</button></a>
-		    </div>
-
+			
+			
 <%- include("./partials/footer.ejs") %>
+	</body>
+</html>

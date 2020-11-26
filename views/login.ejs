@@ -14,43 +14,18 @@
 
 <%- include("partials/header_provider") %>	
 	<div class="container">
-        <div class="myCard">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="myLeftCtn"> 
-                        <form action="/login" method = "POST" class="myForm text-center">
-                            <header>Login Kariye.</header>
-                            <div class="form-group">
-                                <i class="fas fa-user"></i>
-                                <input class="myInput" type="text" placeholder = "username" name = 	"username">
-                            </div>
-
-                            <div class="form-group">
-                                <i class="fas fa-envelope"></i>
-                                <input class="myInput" type="password" placeholder = "password" name="password">
-                            </div>       
-                            <label>
-                            <input type="submit" class="butt" value="Login">
-							<div class="invalid-feedback">ABBE NIKAL.. YE LEARNING WEBSITE NAHI HAI</div>
-                            </label>
-                        </form>
-						<div style="padding-top: 30px; padding-left: 10px;">
-							<a href="/register" style="padding-top: 70px; color: black; font-family: sans-serif;">Don't have an account? create NOW!</a>
-						</div>
-                    </div>
-                </div> 
-                <div class="col-md-6">
-                    <div class="myRightCtn">
-                            <div class="box"><header>Wohoo Welcome Again!</header>
-                            
-                            <!-- <p>we WILL HAPPY TO SERVE YOU</p> -->
-                                <input type="button" class="butt_out" value="Learn More"/>
-                            </div>
-                                
-                    </div>
-                </div>
-            </div>
-        </div>
+			<form class="login-form" action="/login" method="POST">
+				<h1 id="login">
+					Enter your credentials!
+				</h1>
+			  <input type="text" class="login-username" name="username" autofocus="true" required="true" placeholder="username" />
+			  <input type="password" class="login-password" name="password" required="true" placeholder="password" />
+			  <input type="submit" name="Login" value="Login" class="login-submit" />
+			</form>
+			
+			<a href="/register" class="login-forgot-pass">Don't have an account? CREATE NOW!</a>
+			<div class="underlay-photo"></div>
+	<div class="underlay-black"></div> 
 </div>
       
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

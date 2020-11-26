@@ -1,129 +1,148 @@
-html {
-  overflow: hidden; /*FF fix*/
-  
-  font-family: Geneva, sans-serif;
-  background: hsl(210, 30%, 0%) radial-gradient( hsl(210, 30%, 20%), hsl(210, 30%, 0%));
-}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+body, html {
+  height: 100%;
 }
 body {
-  background: #fbf3ff;
-} 
-.container {
-  position: absolute;
-  max-width: 800px;
-  height: 500px;
-  margin: auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} 
-.myRightCtn {
-  position: relative;
-  background-image: linear-gradient(45deg, #f046ff, #9b00e8);
-  border-radius: 25px;
-  height: 100%;
-  padding: 25px;
-  color: rgb(192, 192, 192);
-  font-size: 12px; 
+  font-family: 'Open Sans';
+  font-weight: 100;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow: hidden;
+
 }
-.myLeftCtn {
-  position: relative;
-  background: #fff;
-  border-radius: 25px;
-  height: 100%;
-  padding: 25px;
-  padding-left: 50px;
+#login{
+	color:white;
+	text-align:center;
+	padding: 2%;
+	font-weight: 50px;
 }
-.myLeftCtn header {
-  color: blueviolet;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 20px;
+input {
+  ::-webkit-input-placeholder {
+     color: rgba(255,255,255,0.7);
+  }
+  ::-moz-placeholder {
+     color: rgba(255,255,255,0.7);  
+  }
+  :-ms-input-placeholder {  
+     color: rgba(255,255,255,0.7);  
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+     color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+       color: rgba(0,0,0,0.7);  
+    }
+    :-ms-input-placeholder {  
+       color: rgba(0,0,0,0.7);  
+    }
+  }
 }
-.row{
-height: 100%;
-} 
-.myCard {
-  position: relative;
-  background: #fff;
-  height: 100%;
-  border-radius: 25px;
-  -webkit-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 10px 40px -10px rgba(0, 0, 0, 0.7);
-} 
-.myRightCtn header {
-  color: #fff;
-  font-size: 44px;
+
+.login-form {
+  //background: #222;
+  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  min-height: 10rem;
+  margin: auto;
+  max-width: 50%;
+  padding: .5rem;
+	margin-top: 20%;
 }
-.box {
-  position: relative;
-  margin: 20px;
-  margin-bottom: 100px;
-} 
-.myLeftCtn .myInput {
-  width: 230px;
-  border-radius: 25px;
-  padding: 10px;
-  padding-left: 50px;
-  border: none;
-  -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+.login-text {
+  //background: hsl(40,30,60);
+  //border-bottom: .5rem solid white;
+  color: white;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+  .fa-stack-1x {
+    color: black;
+  }
 }
-.myLeftCtn .myInput:focus {
-  outline: none;
-} 
-.myForm {
-  position: relative;
-  margin-top: 50px;
-} 
-.myLeftCtn .butt {
-  background: linear-gradient(45deg, #bb36fd, #9b00e8);
-  color: #fff;
-  width: 230px;
-  border: none;
-  border-radius: 25px;
-  padding: 10px;
-  -webkit-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
-} 
-.myLeftCtn .butt:hover {
-  background: linear-gradient(45deg, #c85bff, #b726ff);
-}
-.myLeftCtn .butt:focus {
-  outline: none;
-} 
-.myLeftCtn .fas {
-  position: relative;
-  color: #bb36fd;
-  left: 36px;
-} 
-.butt_out {
+
+.login-username, .login-password {
   background: transparent;
-  color: #fff;
-  width: 120px;
-  border: 2px solid#fff;
-  border-radius: 25px;
-  padding: 10px;
-  -webkit-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
-  box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
-} 
-.butt_out:hover {
-  border: 2px solid#eecbff;
-} 
-.butt_out:focus {
-  outline: none;
+  border: 0 solid;
+  border-bottom: 1px solid rgba(white, .5);
+  color: white;
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.login-forgot-pass {
+  //border-bottom: 1px solid white;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 75%;
+  left: 0;
+  opacity: 0.6;
+  padding: .5rem;
+  position: absolute;
+  text-align: center;
+  //text-decoration: none;
+  width: 100%;
+  &:hover {
+    opacity: 1;
+  }
+}
+.login-submit {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  display: block;
+  margin: 1rem auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
 }
 
 
+
+
+[class*=underlay] {
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
+  position: fixed;
+  top: 0;
+}
+.underlay-photo {
+  animation: hue-rotate 6s infinite;
+  background: url('https://31.media.tumblr.com/41c01e3f366d61793e5a3df70e46b462/tumblr_n4vc8sDHsd1st5lhmo1_1280.jpg');
+  background-size: cover;
+  -webkit-filter: grayscale(30%);
+  z-index: -1;
+}
+.underlay-black {
+  background: rgba(0,0,0,0.7);
+  z-index: -1;
+}
+
+@keyframes hue-rotate {
+  from {
+    -webkit-filter: grayscale(30%) hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: grayscale(30%) hue-rotate(360deg);
+  }
+}
